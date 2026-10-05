@@ -1,0 +1,280 @@
+.hero {
+  grid-template-areas: 'label art' 'name art' 'role art' 'org art' 'toggle art' 'statement art' 'actions art' 'scroll scroll';
+}
+.hero-org {
+  grid-area: org;
+  justify-self: start;
+  margin: -7px 0 17px;
+  padding: 7px 10px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  box-shadow: 2px 2px 0 var(--ink);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+.hero-org span { padding-inline: 3px; color: #B13E36; }
+.portrait-frame { background: var(--card); }
+.portrait-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 34%;
+  animation: portrait-reveal 550ms ease both;
+}
+.portrait-caption {
+  position: absolute;
+  z-index: 2;
+  right: 10px;
+  bottom: 10px;
+  padding: 8px 10px;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+.portrait-frame::before {
+  top: auto;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 74px;
+  transform: none;
+  background: linear-gradient(transparent, rgba(23,23,28,.28));
+  pointer-events: none;
+}
+.portrait-frame::after { content: none; }
+@keyframes portrait-reveal {
+  from { opacity: .6; transform: rotateY(80deg); }
+  to { opacity: 1; transform: rotateY(0); }
+}
+.tech-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.tech-category {
+  min-width: 0;
+  padding: 18px;
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.tech-category-heading {
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink);
+}
+.tech-category-index {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--ink);
+  background: var(--accent);
+  font: 800 10px 'Bricolage Grotesque', system-ui, sans-serif;
+}
+.tech-category-heading h3 { margin: 0; font: 800 17px/1.1 'Bricolage Grotesque', system-ui, sans-serif; }
+.tech-count { margin-left: auto; font-size: 8px; font-weight: 800; letter-spacing: .08em; white-space: nowrap; }
+.tech-items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px 7px; }
+.tech-item {
+  min-width: 0;
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 6px;
+  padding: 4px 2px;
+  overflow-wrap: anywhere;
+  text-align: center;
+  font-size: 9px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.tech-mark {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--ink);
+  background: var(--accent2);
+  color: var(--ink);
+  font: 800 10px 'Bricolage Grotesque', system-ui, sans-serif;
+}
+.tech-mark svg { width: 17px; height: 17px; fill: currentColor; }
+.foundations-panel {
+  display: grid;
+  grid-template-columns: minmax(230px, .7fr) minmax(0, 1.3fr);
+  gap: 24px;
+  margin-top: 19px;
+  padding: 22px;
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--accent2);
+  box-shadow: var(--shadow);
+}
+.foundations-panel .section-kicker { margin-bottom: 8px; }
+.foundations-panel h3 { margin: 0 0 7px; font: 800 23px 'Bricolage Grotesque', system-ui, sans-serif; }
+.foundations-panel p { margin: 0; font-size: 11px; line-height: 1.5; }
+.foundation-items { display: flex; align-content: start; flex-wrap: wrap; gap: 7px; }
+.foundation-item {
+  min-height: 29px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 9px;
+  font-weight: 700;
+}
+.foundation-item span { width: 14px; height: 14px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); font-size: 12px; line-height: 1; }
+.band-tag {
+  min-width: 44px;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 9px;
+  border: 2px solid var(--ink);
+  border-radius: 5px;
+  background: var(--accent);
+  box-shadow: 2px 2px 0 var(--ink);
+  font-size: 11px;
+}
+.band-c09 { background: var(--accent); }
+.entry-company-logo { width: 42px; height: 34px; object-fit: contain; }
+.experience-tech { margin-top: 18px; padding-top: 14px; border-top: 2px solid rgba(23,23,28,.24); }
+.experience-tech-label { display: block; margin-bottom: 9px; font-size: 9px; font-weight: 800; letter-spacing: .1em; }
+.experience-tech > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.experience-skill {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  background: var(--accent2);
+  font-size: 10px;
+  font-weight: 700;
+}
+.experience-skill .tech-mark { flex-basis: 18px; width: 18px; height: 18px; border: 0; background: transparent; }
+.experience-skill .tech-mark svg { width: 16px; height: 16px; }
+.experience-skill .tech-mark > span { font-size: 7px; }
+.project-subheading { margin: 32px 0 16px; font: 800 15px 'Bricolage Grotesque', system-ui, sans-serif; letter-spacing: .07em; }
+.personal-project-heading { margin-top: 55px; }
+.personal-project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+.personal-project-card { display: flex; flex-direction: column; padding: 21px; border: var(--border); border-radius: var(--radius); background: var(--card); }
+.personal-project-card h4 { margin: 19px 0 8px; font: 800 20px/1.1 'Bricolage Grotesque', system-ui, sans-serif; }
+.personal-project-card p, .personal-project-card li { font-size: 11px; line-height: 1.55; }
+.personal-project-card p { margin: 0 0 10px; }
+.personal-project-summary { min-height: 52px; }
+.personal-project-details { margin-top: 4px; }
+.personal-project-details h5, .personal-project-stack h5 { margin: 0 0 8px; font: 700 10px/1.3 'Inter', system-ui, sans-serif; }
+.personal-project-card ul { margin: 0; padding-left: 16px; }
+.personal-project-card li { margin-block: 4px; }
+.personal-project-stack { margin-top: auto; padding-top: 15px; border-top: 1px solid rgba(23,23,28,.25); }
+.personal-project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.project-stack-tag { padding: 5px 8px; border: 2px solid var(--ink); border-radius: 999px; background: var(--accent2); font-size: 8px; line-height: 1.2; font-weight: 700; }
+.project-stack-empty { margin: 0 !important; color: #4B4B50; font-size: 10px !important; }
+.education-topics { margin: 17px 0 12px !important; line-height: 1.6; }
+.education-highlights { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+.education-highlights span { padding: 6px 9px; border: 2px solid var(--ink); background: var(--accent2); font-size: 9px; font-weight: 700; }
+.education-honors { display: inline-flex; margin: 13px 0 !important; padding: 7px 10px; border: 2px solid var(--ink); background: var(--accent); }
+.club-description { max-width: 430px; margin-top: 12px !important; font-size: 15px; line-height: 1.65; }
+.ncc-row { grid-template-columns: minmax(180px, .65fr) 1.35fr; align-items: center; }
+.ncc-row > .club-description { margin: 0 !important; font-size: 14px !important; }
+.club-gallery { flex-wrap: wrap; justify-content: flex-start; align-content: center; }
+.photo-tile { width: min(28%, 170px); }
+.photo-tile.photo-logo img { object-fit: contain; }
+.club-highlights { margin: 12px 0 0; padding-left: 17px; }
+.club-highlights li { margin: 7px 0; font-size: 11px; line-height: 1.5; }
+.course-heading { margin: 24px 0 10px; font: 800 16px 'Bricolage Grotesque', system-ui, sans-serif; }
+.course-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px 16px; margin: 0; padding: 0; list-style: none; }
+.course-grid li { min-width: 0; display: flex; gap: 8px; padding: 8px 0; border-bottom: 1px solid rgba(23,23,28,.2); font-size: 10px; line-height: 1.4; }
+.course-grid li strong { flex: 0 0 54px; font-size: 9px; }
+.course-grid li span { min-width: 0; }
+.sacl-section { padding-top: 60px; }
+.sacl-section .section-heading { margin-bottom: 20px; }
+.sacl-section .section-heading h2 { font-size: clamp(30px, 4vw, 44px); }
+.sacl-section .timeline { margin-top: 0; }
+@media (max-width: 900px) {
+  .tech-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tech-category:last-child { grid-column: 1 / -1; }
+  .hero-org { margin-bottom: 12px; }
+}
+@media (max-width: 640px) {
+  .hero { grid-template-areas: 'label' 'name' 'role' 'org' 'toggle' 'art' 'statement' 'actions' 'scroll'; }
+  .hero-org { margin: 0 0 8px; font-size: 8px; }
+  .hero-art { perspective: 900px; }
+  .portrait-frame { aspect-ratio: .9; }
+  .portrait-image { object-position: center 32%; }
+  .tech-grid, .personal-project-grid { grid-template-columns: 1fr; }
+  .tech-category:last-child { grid-column: auto; }
+  .tech-category { padding: 16px; }
+  .tech-items { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 3px; }
+  .tech-item { min-height: 62px; font-size: 8px; }
+  .tech-mark { flex-basis: 28px; width: 28px; height: 28px; }
+  .foundations-panel { grid-template-columns: 1fr; gap: 14px; padding: 17px; }
+  .foundation-item { font-size: 8px; }
+  .entry-heading { flex-wrap: wrap; }
+  .entry-heading h3 { font-size: 17px; }
+  .band-tag { min-width: 40px; min-height: 27px; }
+  .education-highlights { display: grid; }
+  .education-highlights span { font-size: 8px; }
+  .ncc-row { grid-template-columns: 1fr; gap: 12px; }
+  .ncc-row > .club-description { margin: 0 !important; font-size: 12px !important; }
+  .club-gallery { flex-wrap: nowrap; justify-content: flex-start; align-content: initial; }
+  .photo-tile { width: min(58vw, 215px); }
+  .course-grid { grid-template-columns: 1fr; }
+  .sacl-section { padding-top: 38px; }
+}
+@media (prefers-reduced-motion: reduce) { .portrait-image { animation: none; } }
+
+.experience-card li,
+.project-summary,
+.personal-project-card p:not(.personal-project-period),
+.personal-project-card li,
+.club-description,
+.club-highlights li,
+.education-card p:not(.section-kicker) {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.entry-meta,
+.company-heading p,
+.project-authors,
+.personal-project-period,
+.foundations-panel p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+.project-stack-tag { font-size: 10px; }
+.experience-skill { font-size: 11px; }
+.course-grid li { font-size: 13px; }
+.course-grid li strong { font-size: 11px; }
+.foundation-item { font-size: 10px; }
+.club-meta p { font-size: 14px; }
+.club-meta .club-description { font-size: 15px; }
+.section-heading > p { font-size: 15px; line-height: 1.65; }
+@media (max-width: 640px) {
+  .experience-card li,
+  .project-summary,
+  .personal-project-card p:not(.personal-project-period),
+  .personal-project-card li,
+  .club-description,
+  .club-highlights li,
+  .education-card p:not(.section-kicker) { font-size: 14px; }
+  .club-meta .club-description,
+  .section-heading > p { font-size: 14px; }
+  .course-grid li { font-size: 13px; }
+  .project-stack-tag { font-size: 9px; }
+}
