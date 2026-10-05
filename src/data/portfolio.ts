@@ -11,7 +11,7 @@ export const skillGroups = [
   { category: 'Foundations & Learning', core: ['Data Structures & Algorithms', 'Generative AI'], more: [] },
 ]
 export const projects = [
-  { title: 'Enhancing Image Generation Using Autoencoders and Transformer-Based Generation', publication: 'IEEE · Aug 2024', url: 'https://xploreqa.ieee.org/document/10739002', authors: '', summary: '' },
+  { title: 'Enhancing Image Generation Using Autoencoders and Transformer-Based Generation', publication: 'IEEE · Aug 2024', url: 'https://xploreqa.ieee.org/document/10739002', authors: '', summary: 'Combines a Vector Quantized Variational Autoencoder (VQ-VAE) encoder with a GPT decoder to generate images from discrete visual latent codes, addressing the challenge of using text-focused GPT models for image synthesis. Reported Fréchet Inception Distance (FID) scores are 23.35 on MNIST, 28.6 on CIFAR-10, and 21.45 on Fashion-MNIST.' },
   { title: 'Comprehensive Dataset for Urban Streetlight Analysis', publication: 'arXiv · 2024', url: 'https://arxiv.org/abs/2407.01117v1', authors: 'Eliza Femi Sherley S, Sanjay T, Shri Kaanth P, Jeffrey Samuel S', summary: 'A labelled collection of more than 800 high-resolution streetlight images, primarily from the Chennai region, organized to support training and evaluation of computer-vision models that classify streetlights as functional or not.' },
 ]
 
