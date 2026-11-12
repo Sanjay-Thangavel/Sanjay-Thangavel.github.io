@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type CSSProperties } from 'react'
-import { ArrowDown, ArrowRight, ArrowUpRight, Mail, Volume2, VolumeX, X } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowUpRight, Images, Mail, Volume2, VolumeX, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useMode, type Mode } from './hooks/useMode'
-import { campusActivities, clubs, educationCourses, educationHighlights, experiences, personalProjects, projects, saclExperience } from './data/portfolio'
+import { campusActivities, citiGallery, clubs, educationCourses, educationHighlights, experiences, personalProjects, projects, saclExperience } from './data/portfolio'
 import { TechIcon, TechStack } from './components/TechStack'
 import './App.css'
 import './portfolio.css'
@@ -93,7 +93,7 @@ function App() {
         <div className="hero-actions">{personal ? <><a className="button button-primary" href="#activities">EXPLORE ACTIVITIES <ArrowRight size={17} /></a><a className="button button-light" href={`mailto:${emailAddress}`}>SAY HI <Mail size={16} /></a></> : <><a className="button button-primary" href="#experience">VIEW MY WORK <ArrowRight size={17} /></a><a className="button button-light" href={githubUrl} target="_blank" rel="noreferrer">GITHUB</a><a className="button button-light" href={linkedinUrl} target="_blank" rel="noreferrer">LINKEDIN</a><a className="button button-light" href="/Sanjay-Thangavel-Resume-2026.pdf" download>DOWNLOAD CV <ArrowDown size={15} /></a></>}</div>
         <a className="scroll-cue" href={personal ? '#activities' : '#experience'}><span>SCROLL TO EXPLORE</span><ArrowDown size={16} /></a><span className="hero-side-note" aria-hidden="true">CHENNAI · INDIA</span>
       </section>
-      {personal ? <PersonalView onOpenImage={setLightbox} /> : <><TechStack /><ProfessionalView /></>}
+      {personal ? <PersonalView onOpenImage={setLightbox} /> : <><TechStack /><ProfessionalView onOpenImage={setLightbox} /></>}
       <section className="contact-section section-wrap" id="contact"><div className="section-kicker">06 <span>CONTACT</span></div><div className="contact-layout"><div><p className="eyebrow">GOOD THINGS START WITH A HELLO</p><h2>LET'S <mark>CONNECT</mark></h2><p className="contact-copy">Have an opportunity, a program, or a problem worth solving? Let's talk.</p></div><div className="contact-links"><a className="button button-primary" href={`mailto:${emailAddress}`}>EMAIL <ArrowUpRight size={17} /></a><a className="button button-light" href={linkedinUrl} target="_blank" rel="noreferrer">LINKEDIN <ArrowUpRight size={15} /></a><a className="button button-light" href={githubUrl} target="_blank" rel="noreferrer">GITHUB <ArrowUpRight size={15} /></a><a className="button button-light" href="/Sanjay-Thangavel-Resume-2026.pdf" download>DOWNLOAD CV <ArrowDown size={15} /></a></div></div></section>
     </main>
     <footer className="footer section-wrap"><a className="wordmark" href="#top">ST<span>.</span></a><p>Sanjay Thangavel <span>·</span> Technology Analyst · Data Science Aspirant</p><p>© 2026 SANJAY THANGAVEL</p></footer>
@@ -134,10 +134,13 @@ function ExperienceEntry({ item, index, companyLogo, companyAlt }: { item: typeo
   </motion.article>
 }
 
-function ProfessionalView() {
+function ProfessionalView({ onOpenImage }: { onOpenImage: (image: { src: string; alt: string }) => void }) {
+  const [citiGalleryOpen, setCitiGalleryOpen] = useState(false)
+
   return <>
     <section className="content-section section-wrap" id="experience"><div className="section-heading"><div><div className="section-kicker">03 <span>CAREER</span></div><h2>EXPERIENCE <mark>IN MOTION</mark></h2></div><p>Cloud data platforms, reliable pipelines, and practical tools built around real operational needs.</p></div>
-      <div className="company-heading"><img src="/images/citi-logo.png" alt="Citi" /><div><h3>Citi</h3><p>Full-time · Chennai, India · {yearsAtCiti()}</p></div><span className="company-index">01 / 02</span></div>
+      <div className="company-heading"><img src="/images/citi-logo.png" alt="Citi" /><div><h3>Citi</h3><p>Full-time · Chennai, India · {yearsAtCiti()}</p></div><div className="company-heading-actions"><button className="button button-light company-gallery-toggle" type="button" onClick={() => setCitiGalleryOpen(!citiGalleryOpen)} aria-expanded={citiGalleryOpen} aria-controls="citi-gallery"><Images size={15} /><span className="gallery-label-desktop">{citiGalleryOpen ? 'HIDE GALLERY' : 'AWARDS GALLERY'}</span><span className="gallery-label-mobile">GALLERY</span></button><span className="company-index">01 / 02</span></div></div>
+      {citiGalleryOpen && <div className="citi-gallery-panel" id="citi-gallery"><div className="citi-gallery-heading"><h4>AWARDS &amp; CITI MOMENTS</h4><span>{citiGallery.length} PHOTOS</span></div><div className="citi-gallery">{citiGallery.map((photo) => <button className="photo-tile" type="button" key={photo.src} onClick={() => onOpenImage(photo)} aria-label={`Open photo: ${photo.alt}`}><img src={photo.src} alt={photo.alt} loading="lazy" /><span>{photo.label}</span></button>)}</div></div>}
       <div className="timeline">{experiences.map((item, index) => <ExperienceEntry item={item} key={item.id} index={index} />)}</div>
     </section>
     <section className="content-section section-wrap sacl-section"><div className="section-heading"><div><div className="section-kicker">SEPARATE INTERNSHIP</div><h2>INTERNSHIP <mark>SACL</mark></h2></div><p>A separate experience at Sakthi Auto Component Limited.</p></div><div className="timeline"><ExperienceEntry item={saclExperience} index={0} companyLogo="/images/sacl-logo.jfif" companyAlt="Sakthi Auto Component Limited" /></div></section>
