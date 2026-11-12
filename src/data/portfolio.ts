@@ -9,6 +9,12 @@ export const citiGallery = [
   { src: '/images/citibank/aws-event-winner.jpeg', alt: 'Sanjay receiving a prize at a Citi AWS event', label: 'AWS Event Winner' },
   { src: '/images/citibank/aws-event-at-citi.jpeg', alt: 'Citi AWS partnership presentation at the office', label: 'Citi AWS Partnership Event' },
 ]
+export const universityGallery = [
+  { src: '/images/anna-university/merit-scholarship.jpg', alt: 'Temenos Adopt-IT merit-based scholarship certificate for the 2022–2023 academic year', label: 'Merit-based Scholarship' },
+  { src: '/images/anna-university/ncc-training-camp.jpg', alt: 'NCC Combined Annual Training Camp certificate', label: 'NCC Training Camp' },
+  { src: '/images/anna-university/variety-team-award.jpg', alt: 'Second-place Variety award certificate for the MIT Variety Team', label: 'Variety Team · Second Place' },
+  { src: '/images/anna-university/red-cross-appreciation.jpg', alt: 'Red Cross certificate of appreciation for blood donation', label: 'Red Cross Appreciation' },
+]
 export const skillGroups = [
   { category: 'Data Engineering', core: ['Big Data', 'Apache Spark', 'ETL / ELT Pipelines', 'Datalake', 'Snowflake', 'Databricks'], more: ['Apache Iceberg', 'Hive', 'Talend'] },
   { category: 'Cloud & DevOps', core: ['AWS', 'Amazon EKS', 'Kubernetes', 'OpenShift', 'Docker'], more: ['Autosys'] },
